@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>All Products — WearRobe Clothing</title>
+
+<meta name="description"
+ content="Shop all WearRobe clothing products. Premium everyday essentials for men, women and kids.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            display: ['Space Grotesk', 'Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+
+    :root {
+      --accent: #a56b4f;
+      --ink: #332a25;
+      --cream: #f8f5f0;
+      --sand: #ebe1d6;
+      --line: rgba(51,42,37,.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Inter, sans-serif;
+    }
+
+    body.lock {
+      overflow: hidden;
+    }
+
+    .display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .mono {
+      font-family: 'DM Mono', monospace;
+    }
+
+    .glass {
+      background: rgba(255,255,255,.68);
+      border: 1px solid rgba(255,255,255,.82);
+      box-shadow: 0 12px 36px rgba(87,66,52,.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .noise:before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .035;
+      z-index: 100;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+    }
+
+    .product-card {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .product-image {
+      transition: transform .5s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.055);
+    }
+
+    .product-action {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all .25s ease;
+    }
+
+    .product-card:hover .product-action {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .category.active {
+      background: var(--ink);
+      color: white;
+    }
+
+    .filter-chip.active {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .drawer {
+      transition: transform .35s cubic-bezier(.2,.8,.2,1);
+    }
+
+    .overlay {
+      transition: opacity .3s ease;
+    }
+
+    .hide-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hide-scroll {
+      scrollbar-width: none;
+    }
+
+    @media(max-width: 768px) {
+
+      .product-action {
+        opacity: 1;
+        transform: none;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body class="noise">
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="sticky top-0 z-40 px-3 sm:px-5 pt-3">
+
+  <nav
+    class="glass rounded-2xl max-w-[1500px] mx-auto px-4 py-3 flex items-center gap-3">
+
+      
+<!-- LOGO -->
+
+<a href="index.html"
+  class="flex items-center gap-3 shrink-0">
+
+  <img
+    src="assets/wearrobe-logo.jpeg"
+    onerror="this.src='https://placehold.co/100x100/332a25/f8f5f0?text=WR'"
+    class="w-10 h-10 rounded-xl object-cover"
+    alt="WearRobe">
+
+  <div class="hidden sm:block">
+
+    <div class="display font-semibold">
+      WearRobe
+    </div>
+
+    <div class="text-[10px] text-[#8b7769]">
+      Clothing
+    </div>
+
+  </div>
+
+</a>
+
+
+<!-- SEARCH -->
+
+<div class="flex-1 max-w-2xl mx-auto relative">
+
+  <svg
+    class="absolute left-4 top-1/2 -translate-y-1/2 text-[#8b7769]"
+    width="18"
+    height="18"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    viewBox="0 0 24 24">
+
+    <circle cx="11" cy="11" r="6.8"/>
+    <path d="m16 16 5 5"/>
+
+  </svg>
+
+  <input
+    id="searchInput"
+    type="text"
+    placeholder="Search products, categories..."
+    class="w-full bg-white/55 border border-[#332a25]/10 rounded-xl py-3 pl-11 pr-4 outline-none text-sm placeholder:text-[#9b8c80] focus:border-[#a56b4f] transition">
+
+</div>
+
+
+<!-- DESKTOP LINKS -->
+
+<div class="hidden lg:flex items-center gap-5 text-sm text-[#75685f]">
+
+  <a href="index.html"
+    class="hover:text-[#332a25]">
+    Home
+  </a>
+
+  <a href="#products"
+    class="font-semibold text-[#332a25]">
+    Shop
+  </a>
+
+</div>
+
+
+<!-- CART -->
+
+<button
+  onclick="openCart()"
+  class="bg-[#332a25] text-white rounded-xl px-3 h-11 flex items-center gap-2 text-sm font-semibold shrink-0 hover:bg-[#a56b4f] transition">
+
+  <span class="hidden sm:inline">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+</svg>
+  </span>
+
+  
+
+  <span
+    id="cartCount"
+    class="bg-[#a56b4f] min-w-5 h-5 px-1 rounded-full grid place-items-center text-[10px]">
+
+    0
+
+  </span>
+
+</button>
+      
+
+  </nav>
+
+</header>
+
+<!-- =========================================================
+     PAGE INTRO
+========================================================= -->
+
+<section
+  class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-7">
+
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-5">
+
+      
+<div>
+
+  <p class="mono text-[11px] tracking-[.18em] text-[#a56b4f] mb-3">
+    WEARROBE / SHOP
+  </p>
+
+  <h1
+    class="display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-[-.055em]">
+
+    All Products
+
+  </h1>
+
+  <p
+    class="text-sm text-[#75685f] mt-3 max-w-xl">
+
+    Explore the complete WearRobe collection.
+    Find everyday pieces made to fit your style.
+
+  </p>
+
+</div>
+
+
+<div
+  class="flex items-center gap-2 text-sm text-[#75685f]">
+
+  <span id="resultCount">
+    0 products
+  </span>
+
+  <span>•</span>
+
+  <span>
+    WearRobe Collection
+  </span>
+
+</div>
+      
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     MOBILE FILTER BAR
+========================================================= -->
+
+<div class="lg:hidden px-4 pb-5">
+
+  <div class="flex gap-2 overflow-x-auto hide-scroll">
+
+      
+<button
+  onclick="openFilters()"
+  class="filter-chip shrink-0 border border-[#332a25]/15 bg-white/50 rounded-full px-4 py-2 text-sm">
+
+  ☰ Filters
+
+</button>
+
+<button
+  onclick="setCategory('all')"
+  class="filter-chip category-filter active shrink-0 border border-[#332a25]/15 rounded-full px-4 py-2 text-sm">
+
+  All
+
+</button>
+
+<button
+  onclick="setCategory('men')"
+  class="filter-chip category-filter shrink-0 border border-[#332a25]/15 rounded-full px-4 py-2 text-sm">
+
+  Men
+
+</button>
+
+<button
+  onclick="setCategory('women')"
+  class="filter-chip category-filter shrink-0 border border-[#332a25]/15 rounded-full px-4 py-2 text-sm">
+
+  Women
+
+</button>
+
+<button
+  onclick="setCategory('kids')"
+  class="filter-chip category-filter shrink-0 border border-[#332a25]/15 rounded-full px-4 py-2 text-sm">
+
+  Kids
+
+</button>
+
+<button
+  onclick="setCategory('boys')"
+  class="filter-chip category-filter shrink-0 border border-[#332a25]/15 rounded-full px-4 py-2 text-sm">
+
+  Boys
+
+</button>
+      
+
+  </div>
+
+</div>
+
+<!-- =========================================================
+     PRODUCTS AREA
+========================================================= -->
+
+<section
+  id="products"
+  class="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+
+  <div class="grid lg:grid-cols-[230px_1fr] gap-7">
+
+      
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside class="hidden lg:block">
+
+  <div
+    class="glass rounded-2xl p-5 sticky top-28">
+
+    <div class="flex items-center justify-between mb-5">
+
+      <h2 class="display font-semibold text-lg">
+        Filters
+      </h2>
+
+      <button
+        onclick="clearFilters()"
+        class="text-xs text-[#a56b4f] hover:underline">
+
+        Clear
+
+      </button>
+
+    </div>
+
+
+    <!-- CATEGORY -->
+
+    <div class="pb-6 border-b border-[#332a25]/10">
+
+      <p class="mono text-[10px] text-[#8b7769] mb-3">
+        CATEGORY
+      </p>
+
+      <div class="space-y-1">
+
+        <button
+          onclick="setCategory('all')"
+          data-side-category="all"
+          class="category active w-full text-left rounded-lg px-3 py-2 text-sm transition">
+
+          All Products
+
+        </button>
+
+        <button
+          onclick="setCategory('men')"
+          data-side-category="men"
+          class="category w-full text-left rounded-lg px-3 py-2 text-sm transition">
+
+          Men
+
+        </button>
+
+        <button
+          onclick="setCategory('women')"
+          data-side-category="women"
+          class="category w-full text-left rounded-lg px-3 py-2 text-sm transition">
+
+          Women
+
+        </button>
+
+        <button
+          onclick="setCategory('kids')"
+          data-side-category="kids"
+          class="category w-full text-left rounded-lg px-3 py-2 text-sm transition">
+
+          Kids
+
+        </button>
+
+        <button
+          onclick="setCategory('boys')"
+          data-side-category="boys"
+          class="category w-full text-left rounded-lg px-3 py-2 text-sm transition">
+
+          Boys
+
+        </button>
+
+        <button
+          onclick="setCategory('girls')"
+          data-side-category="girls"
+          class="category w-full text-left rounded-lg px-3 py-2 text-sm transition">
+
+          Girls
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- TYPE -->
+
+    <div class="py-6 border-b border-[#332a25]/10">
+
+      <p class="mono text-[10px] text-[#8b7769] mb-3">
+        PRODUCT TYPE
+      </p>
+
+      <div class="space-y-1">
+
+        <button
+          onclick="setType('all')"
+          class="type-filter w-full text-left text-sm py-2 text-[#75685f] hover:text-[#332a25]">
+
+          All Types
+
+        </button>
+
+        <button
+          onclick="setType('T-shirt')"
+          class="type-filter w-full text-left text-sm py-2 text-[#75685f] hover:text-[#332a25]">
+
+          T-shirts
+
+        </button>
+
+        <button
+          onclick="setType('Hoodie')"
+          class="type-filter w-full text-left text-sm py-2 text-[#75685f] hover:text-[#332a25]">
+
+          Hoodies
+
+        </button>
+
+        <button
+          onclick="setType('Jacket')"
+          class="type-filter w-full text-left text-sm py-2 text-[#75685f] hover:text-[#332a25]">
+
+          Jackets
+
+        </button>
+
+        <button
+          onclick="setType('Pants')"
+          class="type-filter w-full text-left text-sm py-2 text-[#75685f] hover:text-[#332a25]">
+
+          Pants
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- PRICE -->
+
+    <div class="pt-6">
+
+      <p class="mono text-[10px] text-[#8b7769] mb-3">
+        PRICE
+      </p>
+
+      <div class="grid grid-cols-2 gap-2">
+
+        <button
+          onclick="setPrice('low')"
+          class="border border-[#332a25]/10 rounded-lg px-2 py-2 text-xs hover:bg-[#ebe1d6]">
+
+          Under $50
+
+        </button>
+
+        <button
+          onclick="setPrice('mid')"
+          class="border border-[#332a25]/10 rounded-lg px-2 py-2 text-xs hover:bg-[#ebe1d6]">
+
+          $50–$100
+
+        </button>
+
+        <button
+          onclick="setPrice('high')"
+          class="border border-[#332a25]/10 rounded-lg px-2 py-2 text-xs hover:bg-[#ebe1d6]">
+
+          $100+
+
+        </button>
+
+        <button
+          onclick="setPrice('all')"
+          class="border border-[#332a25]/10 rounded-lg px-2 py-2 text-xs hover:bg-[#ebe1d6]">
+
+          All
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     PRODUCT CONTENT
+====================================================== -->
+
+<div>
+
+  <!-- TOOLBAR -->
+
+  <div
+    class="glass rounded-2xl p-3 mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+
+    <div class="text-sm text-[#75685f]">
+
+      Showing
+      <strong id="showingCount" class="text-[#332a25]">
+        0
+      </strong>
+      products
+
+    </div>
+
+
+    <div class="flex items-center gap-2">
+
+      <label
+        class="text-xs text-[#8b7769] hidden sm:block">
+
+        Sort by
+
+      </label>
+
+      <select
+        id="sortSelect"
+        onchange="applySort()"
+        class="bg-white/60 border border-[#332a25]/10 rounded-xl px-3 py-2 text-sm outline-none">
+
+        <option value="featured">
+          Featured
+        </option>
+
+        <option value="newest">
+          Newest
+        </option>
+
+        <option value="price-low">
+          Price: Low to High
+        </option>
+
+        <option value="price-high">
+          Price: High to Low
+        </option>
+
+        <option value="rating">
+          Top Rated
+        </option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+
+  <!-- PRODUCT GRID -->
+
+  <div
+    id="productGrid"
+    class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5">
+
+  </div>
+
+
+  <!-- EMPTY -->
+
+  <div
+    id="emptyState"
+    class="hidden text-center py-20">
+
+    <div
+      class="w-16 h-16 bg-[#ebe1d6] rounded-full grid place-items-center mx-auto text-2xl mb-4">
+
+      🔎
+
+    </div>
+
+    <h2 class="display text-xl">
+      No products found
+    </h2>
+
+    <p class="text-sm text-[#8b7769] mt-2">
+      Try another search or clear your filters.
+    </p>
+
+    <button
+      onclick="clearFilters()"
+      class="mt-5 bg-[#332a25] text-white rounded-xl px-5 py-3 text-sm font-semibold">
+
+      Clear filters
+
+    </button>
+
+  </div>
+
+</div>
+      
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     CART OVERLAY
+========================================================= -->
+
+<div
+  id="cartOverlay"
+  onclick="closeCart()"
+  class="fixed inset-0 bg-black/35 backdrop-blur-sm z-50 hidden opacity-0 overlay">
+
+</div>
+
+<!-- =========================================================
+     CART DRAWER
+========================================================= -->
+
+<aside
+  id="cartDrawer"
+  class="drawer fixed right-0 top-0 h-full w-full max-w-md bg-[#f8f5f0] z-[60] translate-x-full shadow-2xl flex flex-col">
+
+  <div
+    class="p-5 border-b border-[#332a25]/10 flex items-center justify-between">
+
+      
+<div>
+
+  <p class="mono text-[10px] text-[#a56b4f]">
+    WEARROBE
+  </p>
+
+  <h2 class="display text-2xl font-semibold">
+    Your Bag
+  </h2>
+
+</div>
+
+<button
+  onclick="closeCart()"
+  class="w-10 h-10 rounded-xl border border-[#332a25]/10 hover:bg-[#ebe1d6]">
+
+  ✕
+
+</button>
+      
+
+  </div>
+
+  <div
+    id="cartItems"
+    class="flex-1 overflow-y-auto p-5 space-y-4">
+
+  </div>
+
+  <div
+    class="p-5 border-t border-[#332a25]/10">
+
+      
+<div
+  class="flex justify-between items-center mb-5">
+
+  <span class="text-sm text-[#75685f]">
+    Total
+  </span>
+
+  <strong
+    id="cartTotal"
+    class="display text-2xl">
+
+    $0
+
+  </strong>
+
+</div>
+
+<button
+  class="w-full bg-[#332a25] text-white rounded-xl py-4 font-semibold">
+
+  Checkout coming soon
+
+</button>
+
+<p class="text-center text-[10px] text-[#8b7769] mt-3">
+  Checkout functionality will be added later.
+</p>
+      
+
+  </div>
+
+</aside>
+
+<!-- =========================================================
+     PRODUCT DETAILS MODAL
+========================================================= -->
+
+<div
+  id="productModal"
+  class="fixed inset-0 z-[80] hidden items-center justify-center p-4">
+
+  <div
+    onclick="closeProduct()"
+    class="absolute inset-0 bg-black/50 backdrop-blur-sm">
+
+  </div>
+
+  <div
+    class="relative z-10 bg-[#f8f5f0] rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+
+      
+<button
+  onclick="closeProduct()"
+  class="absolute right-4 top-4 z-20 w-10 h-10 bg-white rounded-xl shadow">
+
+  ✕
+
+</button>
+
+<div id="productDetails"></div>
+      
+
+  </div>
+
+</div>
+
+<!-- =========================================================
+     MOBILE FILTER DRAWER
+========================================================= -->
+
+<div
+  id="filterOverlay"
+  onclick="closeFilters()"
+  class="fixed inset-0 z-[70] bg-black/40 hidden">
+
+</div>
+
+<aside
+  id="filterDrawer"
+  class="drawer fixed left-0 top-0 bottom-0 w-[85%] max-w-sm bg-[#f8f5f0] z-[75] -translate-x-full overflow-y-auto">
+
+  <div class="p-5">
+
+      
+<div class="flex justify-between items-center mb-7">
+
+  <h2 class="display text-2xl font-semibold">
+    Filters
+  </h2>
+
+  <button
+    onclick="closeFilters()"
+    class="w-10 h-10 rounded-xl bg-[#ebe1d6]">
+
+    ✕
+
+  </button>
+
+</div>
+
+
+<p class="mono text-[10px] text-[#8b7769] mb-3">
+  CATEGORY
+</p>
+
+<div class="grid grid-cols-2 gap-2 mb-8">
+
+  <button onclick="setCategory('all')" class="border rounded-xl py-3 text-sm">
+    All
+  </button>
+
+  <button onclick="setCategory('men')" class="border rounded-xl py-3 text-sm">
+    Men
+  </button>
+
+  <button onclick="setCategory('women')" class="border rounded-xl py-3 text-sm">
+    Women
+  </button>
+
+  <button onclick="setCategory('kids')" class="border rounded-xl py-3 text-sm">
+    Kids
+  </button>
+
+  <button onclick="setCategory('boys')" class="border rounded-xl py-3 text-sm">
+    Boys
+  </button>
+
+  <button onclick="setCategory('girls')" class="border rounded-xl py-3 text-sm">
+    Girls
+  </button>
+
+</div>
+
+
+<p class="mono text-[10px] text-[#8b7769] mb-3">
+  PRODUCT TYPE
+</p>
+
+<div class="space-y-2">
+
+  <button onclick="setType('all')" class="w-full border rounded-xl py-3 text-sm">
+    All Types
+  </button>
+
+  <button onclick="setType('T-shirt')" class="w-full border rounded-xl py-3 text-sm">
+    T-shirts
+  </button>
+
+  <button onclick="setType('Hoodie')" class="w-full border rounded-xl py-3 text-sm">
+    Hoodies
+  </button>
+
+  <button onclick="setType('Jacket')" class="w-full border rounded-xl py-3 text-sm">
+    Jackets
+  </button>
+
+  <button onclick="setType('Pants')" class="w-full border rounded-xl py-3 text-sm">
+    Pants
+  </button>
+
+</div>
+      
+
+  </div>
+
+</aside>
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+  id="toast"
+  class="fixed bottom-5 left-1/2 -translate-x-1/2 translate-y-20 opacity-0 bg-[#332a25] text-white rounded-full px-5 py-3 text-sm z-[100] transition-all duration-300">
+
+</div>
+
+<script>
+
+/* =========================================================
+   PRODUCT DATABASE
+========================================================= */
+
+const products = [
+
+  {
+    id: 1,
+    name: "Heavyweight Essential Tee",
+    type: "T-shirt",
+    price: 42,
+    oldPrice: 55,
+    discount: 24,
+    rating: 4.8,
+    reviews: 128,
+    tag: "Bestseller",
+    cats: ["men", "tees"],
+    img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
+    description: "Premium heavyweight cotton tee with a relaxed modern fit."
+  },
+
+  {
+    id: 2,
+    name: "Cloudline Boxy Hoodie",
+    type: "Hoodie",
+    price: 88,
+    oldPrice: 110,
+    discount: 20,
+    rating: 4.9,
+    reviews: 94,
+    tag: "New",
+    cats: ["women", "hoodies"],
+    img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85",
+    description: "Soft structured hoodie designed for everyday layering."
+  },
+
+  {
+    id: 3,
+    name: "Transit Shell Jacket",
+    type: "Jacket",
+    price: 138,
+    oldPrice: 165,
+    discount: 16,
+    rating: 4.7,
+    reviews: 71,
+    tag: "Limited",
+    cats: ["men", "jackets"],
+    img: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?auto=format&fit=crop&w=900&q=85",
+    description: "Lightweight outer layer with a clean modern silhouette."
+  },
+
+  {
+    id: 4,
+    name: "Ribbed Everyday Tank",
+    type: "T-shirt",
+    price: 38,
+    oldPrice: 49,
+    discount: 22,
+    rating: 4.6,
+    reviews: 86,
+    tag: "New",
+    cats: ["women", "tees"],
+    img: "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=900&q=85",
+    description: "Soft ribbed essential with a comfortable everyday shape."
+  },
+
+  {
+    id: 5,
+    name: "Studio Zip Hoodie",
+    type: "Hoodie",
+    price: 96,
+    oldPrice: 125,
+    discount: 23,
+    rating: 4.8,
+    reviews: 143,
+    tag: "Core",
+    cats: ["men", "hoodies"],
+    img: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=900&q=85",
+    description: "Full zip hoodie made for comfort and everyday movement."
+  },
+
+  {
+    id: 6,
+    name: "Soft Form Longsleeve",
+    type: "T-shirt",
+    price: 54,
+    oldPrice: 70,
+    discount: 23,
+    rating: 4.5,
+    reviews: 63,
+    tag: "Core",
+    cats: ["women", "tees"],
+    img: "https://images.unsplash.com/photo-1506629905607-d4055df5c1d2?auto=format&fit=crop&w=900&q=85",
+    description: "Soft-touch long sleeve with a clean minimal silhouette."
+  },
+
+  {
+    id: 7,
+    name: "Workwear Overshirt",
+    type: "Jacket",
+    price: 124,
+    oldPrice: 150,
+    discount: 17,
+    rating: 4.8,
+    reviews: 58,
+    tag: "New",
+    cats: ["men", "jackets"],
+    img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=85",
+    description: "Structured overshirt inspired by modern workwear."
+  },
+
+  {
+    id: 8,
+    name: "Everyday Cropped Tee",
+    type: "T-shirt",
+    price: 44,
+    oldPrice: 58,
+    discount: 24,
+    rating: 4.6,
+    reviews: 91,
+    tag: "Core",
+    cats: ["women", "tees"],
+    img: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=85",
+    description: "Cropped everyday essential with an effortless fit."
+  },
+
+  {
+    id: 9,
+    name: "Urban Boys Graphic Tee",
+    type: "T-shirt",
+    price: 32,
+    oldPrice: 42,
+    discount: 24,
+    rating: 4.9,
+    reviews: 112,
+    tag: "Boys",
+    cats: ["boys", "kids", "tees"],
+    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=900&q=85",
+    description: "Comfortable graphic tee designed for everyday boys wear."
+  },
+
+  {
+    id: 10,
+    name: "Mini Street Hoodie",
+    type: "Hoodie",
+    price: 62,
+    oldPrice: 78,
+    discount: 21,
+    rating: 4.8,
+    reviews: 76,
+    tag: "Boys",
+    cats: ["boys", "kids", "hoodies"],
+    img: "https://images.unsplash.com/photo-1519457431-44ccd64a579b?auto=format&fit=crop&w=900&q=85",
+    description: "Warm everyday hoodie with a modern streetwear feel."
+  },
+
+  {
+    id: 11,
+    name: "Junior Cargo Pants",
+    type: "Pants",
+    price: 58,
+    oldPrice: 75,
+    discount: 23,
+    rating: 4.7,
+    reviews: 64,
+    tag: "Kids",
+    cats: ["boys", "kids"],
+    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=900&q=85",
+    description: "Relaxed cargo pants designed for active everyday wear."
+  },
+
+  {
+    id: 12,
+    name: "Kids Everyday Jacket",
+    type: "Jacket",
+    price: 74,
+    oldPrice: 95,
+    discount: 22,
+    rating: 4.8,
+    reviews: 51,
+    tag: "Kids",
+    cats: ["kids", "boys", "girls", "jackets"],
+    img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85",
+    description: "Lightweight jacket made for comfortable everyday adventures."
+  }
+
+];
+
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let cart = [];
+
+let currentCategory = "all";
+
+let currentType = "all";
+
+let currentPrice = "all";
+
+
+
+const grid = document.getElementById("productGrid");
+
+
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+function fallbackImage(img) {
+
+  img.onerror = null;
+
+  img.src =
+    "https://placehold.co/900x1100/e4d8cc/332a25?text=WearRobe";
+
+}
+
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+function productCard(p) {
+
+  return `
+
+    <article
+      class="product-card bg-white/55 border border-white/80 rounded-2xl overflow-hidden shadow-sm">
+
+      <div
+        class="aspect-[4/5] bg-[#e4d8cc] relative overflow-hidden">
+
+        <img
+          src="${p.img}"
+          onerror="fallbackImage(this)"
+          alt="${p.name}"
+          class="product-image w-full h-full object-cover">
+
+
+        <div class="absolute top-3 left-3">
+
+          <span
+            class="bg-[#332a25] text-white text-[9px] font-semibold uppercase tracking-wider px-2.5 py-1.5 rounded-full">
+
+            ${p.tag}
+
+          </span>
+
+        </div>
+
+
+        <div
+          class="absolute top-3 right-3">
+
+          <span
+            class="bg-[#a56b4f] text-white text-[10px] font-bold px-2 py-1 rounded-lg">
+
+            -${p.discount}%
+
+          </span>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div
+          class="product-action absolute bottom-3 left-3 right-3 grid grid-cols-[1fr_44px] gap-2">
+
+          <button
+            onclick="addToCart(${p.id})"
+            class="bg-[#332a25] text-white rounded-xl py-3 text-xs font-semibold hover:bg-[#a56b4f] transition">
+
+            Add to Cart +
+
+          </button>
+
+          <button
+            onclick="openProduct(${p.id})"
+            class="bg-white/95 text-[#332a25] rounded-xl grid place-items-center hover:bg-[#a56b4f] hover:text-white transition">
+
+            <svg
+              width="19"
+              height="19"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              viewBox="0 0 24 24">
+
+              <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/>
+              <circle cx="12" cy="12" r="2.8"/>
+
+            </svg>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- INFO -->
+
+      <div class="p-3 sm:p-4">
+
+        <p
+          class="text-[10px] uppercase tracking-wider text-[#a56b4f] mb-1">
+
+          ${p.type}
+
+        </p>
+
+
+        <h3
+          onclick="openProduct(${p.id})"
+          class="font-semibold text-sm leading-snug cursor-pointer hover:text-[#a56b4f]">
+
+          ${p.name}
+
+        </h3>
+
+
+        <!-- RATING -->
+
+        <div
+          class="flex items-center gap-1 mt-2">
+
+          <span class="text-[#a56b4f] text-xs">
+            ★★★★★
+          </span>
+
+          <span class="text-[10px] text-[#8b7769]">
+            ${p.rating} (${p.reviews})
+          </span>
+
+        </div>
+
+
+        <!-- PRICE -->
+
+        <div
+          class="flex items-center gap-2 mt-3">
+
+          <strong
+            class="display text-lg">
+
+            $${p.price}
+
+          </strong>
+
+          <del
+            class="text-xs text-[#9b8c80]">
+
+            $${p.oldPrice}
+
+          </del>
+
+        </div>
+
+
+        <button
+          onclick="addToCart(${p.id})"
+          class="w-full mt-3 border border-[#332a25]/15 rounded-xl py-2.5 text-xs font-semibold hover:bg-[#332a25] hover:text-white transition">
+
+          Add to Cart
+
+        </button>
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+
+/* =========================================================
+   FILTER + RENDER
+========================================================= */
+
+function renderProducts() {
+
+  let result = [...products];
+
+
+  /* CATEGORY */
+
+  if (currentCategory !== "all") {
+
+    result =
+      result.filter(p =>
+        p.cats.includes(currentCategory)
+      );
+
+  }
+
+
+  /* TYPE */
+
+  if (currentType !== "all") {
+
+    result =
+      result.filter(p =>
+        p.type === currentType
+      );
+
+  }
+
+
+  /* PRICE */
+
+  if (currentPrice === "low") {
+
+    result =
+      result.filter(p => p.price < 50);
+
+  }
+
+  if (currentPrice === "mid") {
+
+    result =
+      result.filter(
+        p => p.price >= 50 && p.price <= 100
+      );
+
+  }
+
+  if (currentPrice === "high") {
+
+    result =
+      result.filter(p => p.price > 100);
+
+  }
+
+
+  /* SEARCH */
+
+  const search =
+    document
+      .getElementById("searchInput")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  if (search) {
+
+    result =
+      result.filter(p =>
+
+        p.name
+          .toLowerCase()
+          .includes(search)
+
+        ||
+
+        p.type
+          .toLowerCase()
+          .includes(search)
+
+        ||
+
+        p.cats
+          .join(" ")
+          .toLowerCase()
+          .includes(search)
+
+      );
+
+  }
+
+
+  /* SORT */
+
+  const sort =
+    document.getElementById("sortSelect").value;
+
+
+  if (sort === "price-low") {
+
+    result.sort(
+      (a,b) => a.price - b.price
+    );
+
+  }
+
+  if (sort === "price-high") {
+
+    result.sort(
+      (a,b) => b.price - a.price
+    );
+
+  }
+
+  if (sort === "rating") {
+
+    result.sort(
+      (a,b) => b.rating - a.rating
+    );
+
+  }
+
+  if (sort === "newest") {
+
+    result.sort(
+      (a,b) => b.id - a.id
+    );
+
+  }
+
+
+  /* RESULT COUNT */
+
+  document.getElementById("resultCount")
+    .textContent =
+    `${result.length} products`;
+
+  document.getElementById("showingCount")
+    .textContent =
+    result.length;
+
+
+  /* EMPTY */
+
+  if (!result.length) {
+
+    grid.innerHTML = "";
+
+    document
+      .getElementById("emptyState")
+      .classList.remove("hidden");
+
+    return;
+
+  }
+
+
+  document
+    .getElementById("emptyState")
+    .classList.add("hidden");
+
+
+  grid.innerHTML =
+    result.map(productCard).join("");
+
+}
+
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+function setCategory(category) {
+
+  currentCategory = category;
+
+  document
+    .querySelectorAll("[data-side-category]")
+    .forEach(btn => {
+
+      btn.classList.toggle(
+        "active",
+        btn.dataset.sideCategory === category
+      );
+
+    });
+
+
+  document
+    .querySelectorAll(".category-filter")
+    .forEach(btn => {
+
+      btn.classList.remove("active");
+
+    });
+
+
+  renderProducts();
+
+  closeFilters();
+
+}
+
+
+
+/* =========================================================
+   TYPE
+========================================================= */
+
+function setType(type) {
+
+  currentType = type;
+
+  renderProducts();
+
+  closeFilters();
+
+}
+
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+function setPrice(price) {
+
+  currentPrice = price;
+
+  renderProducts();
+
+}
+
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+function applySort() {
+
+  renderProducts();
+
+}
+
+
+
+/* =========================================================
+   CLEAR FILTERS
+========================================================= */
+
+function clearFilters() {
+
+  currentCategory = "all";
+
+  currentType = "all";
+
+  currentPrice = "all";
+
+  document.getElementById("searchInput").value = "";
+
+  document.getElementById("sortSelect").value = "featured";
+
+  setCategory("all");
+
+}
+
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+function addToCart(id) {
+
+  const product =
+    products.find(p => p.id === id);
+
+  const existing =
+    cart.find(item => item.id === id);
+
+
+  if (existing) {
+
+    existing.qty++;
+
+  } else {
+
+    cart.push({
+      ...product,
+      qty: 1
+    });
+
+  }
+
+
+  updateCart();
+
+  showToast(
+    `${product.name} added to your bag`
+  );
+
+}
+
+
+
+function updateCart() {
+
+  const count =
+    cart.reduce(
+      (sum,item) => sum + item.qty,
+      0
+    );
+
+  document.getElementById("cartCount")
+    .textContent = count;
+
+
+  const container =
+    document.getElementById("cartItems");
+
+
+  if (!cart.length) {
+
+    container.innerHTML = `
+
+      <div
+        class="min-h-[350px] flex flex-col items-center justify-center text-center">
+
+        <div
+          class="w-16 h-16 bg-[#ebe1d6] rounded-full grid place-items-center text-2xl">
+
+          🛍️
+
+        </div>
+
+        <h3 class="display text-xl mt-4">
+          Your bag is empty
+        </h3>
+
+        <p class="text-sm text-[#8b7769] mt-2">
+          Add products to see them here.
+        </p>
+
+      </div>
+
+    `;
+
+  } else {
+
+    container.innerHTML =
+      cart.map(item => `
+
+        <div
+          class="flex gap-3 pb-4 border-b border-[#332a25]/10">
+
+          <img
+            src="${item.img}"
+            onerror="fallbackImage(this)"
+            class="w-20 h-24 rounded-xl object-cover bg-[#e4d8cc]">
+
+
+          <div class="flex-1">
+
+            <div class="flex justify-between gap-2">
+
+              <h3 class="text-sm font-semibold">
+                ${item.name}
+              </h3>
+
+              <button
+                onclick="removeFromCart(${item.id})"
+                class="text-xs text-[#a56b4f]">
+
+                Remove
+
+              </button>
+
+            </div>
+
+
+            <p class="text-xs text-[#8b7769] mt-1">
+              ${item.type}
+            </p>
+
+
+            <div
+              class="flex justify-between items-center mt-4">
+
+              <div
+                class="flex border border-[#332a25]/10 rounded-lg overflow-hidden">
+
+                <button
+                  onclick="changeQty(${item.id},-1)"
+                  class="w-8 h-8 hover:bg-[#ebe1d6]">
+
+                  −
+
+                </button>
+
+                <span
+                  class="w-8 h-8 grid place-items-center text-xs">
+
+                  ${item.qty}
+
+                </span>
+
+                <button
+                  onclick="changeQty(${item.id},1)"
+                  class="w-8 h-8 hover:bg-[#ebe1d6]">
+
+                  +
+
+                </button>
+
+              </div>
+
+              <strong>
+                $${item.price * item.qty}
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `).join("");
+
+  }
+
+
+  const total =
+    cart.reduce(
+      (sum,item) =>
+        sum + item.price * item.qty,
+      0
+    );
+
+
+  document.getElementById("cartTotal")
+    .textContent =
+    `$${total}`;
+
+}
+
+
+
+function changeQty(id, amount) {
+
+  const item =
+    cart.find(i => i.id === id);
+
+  if (!item) return;
+
+  item.qty += amount;
+
+  if (item.qty <= 0) {
+
+    removeFromCart(id);
+
+  } else {
+
+    updateCart();
+
+  }
+
+}
+
+
+
+function removeFromCart(id) {
+
+  cart =
+    cart.filter(item => item.id !== id);
+
+  updateCart();
+
+  showToast("Product removed from your bag");
+
+}
+
+
+
+/* =========================================================
+   CART DRAWER
+========================================================= */
+
+function openCart() {
+
+  const drawer =
+    document.getElementById("cartDrawer");
+
+  const overlay =
+    document.getElementById("cartOverlay");
+
+
+  overlay.classList.remove("hidden");
+
+  requestAnimationFrame(() => {
+
+    overlay.classList.remove("opacity-0");
+
+    drawer.classList.remove("translate-x-full");
+
+  });
+
+
+  document.body.classList.add("lock");
+
+}
+
+
+
+function closeCart() {
+
+  const drawer =
+    document.getElementById("cartDrawer");
+
+  const overlay =
+    document.getElementById("cartOverlay");
+
+
+  drawer.classList.add("translate-x-full");
+
+  overlay.classList.add("opacity-0");
+
+
+  setTimeout(() => {
+
+    overlay.classList.add("hidden");
+
+  },300);
+
+
+  document.body.classList.remove("lock");
+
+}
+
+
+
+/* =========================================================
+   PRODUCT DETAILS
+========================================================= */
+
+function openProduct(id) {
+
+  const p =
+    products.find(item => item.id === id);
+
+  document.getElementById("productDetails").innerHTML = `
+
+    <div class="grid md:grid-cols-2">
+
+      <div class="bg-[#e4d8cc] min-h-[420px]">
+
+        <img
+          src="${p.img}"
+          onerror="fallbackImage(this)"
+          class="w-full h-full object-cover"
+          alt="${p.name}">
+
+      </div>
+
+
+      <div class="p-7 sm:p-10 flex flex-col">
+
+        <span
+          class="self-start bg-[#ebe1d6] rounded-full px-3 py-1 text-[10px] uppercase tracking-wider">
+
+          ${p.tag}
+
+        </span>
+
+
+        <p
+          class="text-xs text-[#a56b4f] uppercase tracking-wider mt-6">
+
+          ${p.type}
+
+        </p>
+
+
+        <h2
+          class="display text-3xl sm:text-4xl font-semibold mt-2">
+
+          ${p.name}
+
+        </h2>
+
+
+        <div class="flex items-center gap-2 mt-4">
+
+          <span class="text-[#a56b4f]">
+            ★★★★★
+          </span>
+
+          <span class="text-sm text-[#8b7769]">
+            ${p.rating} · ${p.reviews} reviews
+          </span>
+
+        </div>
+
+
+        <div class="flex items-center gap-3 mt-5">
+
+          <strong
+            class="display text-3xl text-[#a56b4f]">
+
+            $${p.price}
+
+          </strong>
+
+          <del class="text-[#9b8c80]">
+            $${p.oldPrice}
+          </del>
+
+          <span
+            class="text-xs bg-[#a56b4f]/10 text-[#a56b4f] px-2 py-1 rounded">
+
+            ${p.discount}% OFF
+
+          </span>
+
+        </div>
+
+
+        <p
+          class="text-sm text-[#75685f] leading-relaxed mt-7">
+
+          ${p.description}
+
+        </p>
+
+
+        <div class="mt-8">
+
+          <p class="text-xs font-semibold mb-2">
+            Product details
+          </p>
+
+          <ul
+            class="text-sm text-[#75685f] space-y-2">
+
+            <li>✓ Premium quality material</li>
+            <li>✓ Comfortable everyday fit</li>
+            <li>✓ Designed by WearRobe</li>
+            <li>✓ Easy everyday styling</li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="mt-auto pt-8">
+
+          <button
+            onclick="addToCart(${p.id}); closeProduct();"
+            class="w-full bg-[#332a25] text-white rounded-xl py-4 font-semibold hover:bg-[#a56b4f] transition">
+
+            Add to Cart — $${p.price}
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  const modal =
+    document.getElementById("productModal");
+
+  modal.classList.remove("hidden");
+
+  modal.classList.add("flex");
+
+  document.body.classList.add("lock");
+
+}
+
+
+
+function closeProduct() {
+
+  const modal =
+    document.getElementById("productModal");
+
+  modal.classList.add("hidden");
+
+  modal.classList.remove("flex");
+
+  document.body.classList.remove("lock");
+
+}
+
+
+
+/* =========================================================
+   MOBILE FILTER
+========================================================= */
+
+function openFilters() {
+
+  document
+    .getElementById("filterOverlay")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("filterDrawer")
+    .classList.remove("-translate-x-full");
+
+  document.body.classList.add("lock");
+
+}
+
+
+
+function closeFilters() {
+
+  document
+    .getElementById("filterDrawer")
+    .classList.add("-translate-x-full");
+
+  setTimeout(() => {
+
+    document
+      .getElementById("filterOverlay")
+      .classList.add("hidden");
+
+  },300);
+
+  document.body.classList.remove("lock");
+
+}
+
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+document
+  .getElementById("searchInput")
+  .addEventListener(
+    "input",
+    renderProducts
+  );
+
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message) {
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent = message;
+
+  toast.classList.remove(
+    "translate-y-20",
+    "opacity-0"
+  );
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer =
+    setTimeout(() => {
+
+      toast.classList.add(
+        "translate-y-20",
+        "opacity-0"
+      );
+
+    },2200);
+
+}
+
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  e => {
+
+    if (e.key === "Escape") {
+
+      closeCart();
+      closeProduct();
+      closeFilters();
+
+    }
+
+  }
+);
+
+
+
+/* =========================================================
+   INITIAL
+========================================================= */
+
+renderProducts();
+
+updateCart();
+
+</script>
+
+</body>
+</html>
